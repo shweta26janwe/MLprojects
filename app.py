@@ -16,7 +16,7 @@ def predict():
     input_data = [float(request.form[key]) for key in request.form]
     input_array = np.asarray(input_data).reshape(1, -1)
     std_data = scaler.transform(input_array)
-    
+    prediction = model.predict(std_data)
 
     if prediction[0] == 0:
         result = 'The person is NOT Diabetic ✅'
